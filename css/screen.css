@@ -8,12 +8,18 @@
 
 :root {
     /* colors */
-    --color-alpha-light: MEDIUMSLATEBLUE;
-    --color-alpha: SLATEBLUE;
+    --color-alpha-x-light: #a3b8ff;
+    --color-alpha-light: #A3A0FB;
+    --color-alpha: #3b86ff;
 
-    --color-neutral-light: LIGHTSLATEGRAY;
-    --color-neutral: SLATEGRAY;
-    --color-neutral-dark: DARKSLATEGRAY;
+    --color-neutral-x-light: #ffffff;
+    --color-neutral-light: #F0F0F7;
+    --color-neutral: #43425D;
+    --color-neutral-dark: #43425D;
+    --color-neutral-xx-dark: #000000;
+
+    --color-beta: #FF6565;
+    
 
     /* Shadows */
 
@@ -21,6 +27,15 @@
 
     /* transitions */
     --transition-alpha: .1s;
+
+    /* Whitespace */
+    --baseline: 5px;
+    --whitespace-xs: calc( var(--baseline) * 2 );
+    --whitespace-sm: calc( var(--baseline) * 3 );
+    --whitespace-md: calc( var(--baseline) * 4 );
+    --whitespace-lg: calc( var(--baseline) * 5 );
+    --whitespace-xl: calc( var(--baseline) * 6 );
+
 }
 
 /*------------------------------------*\
@@ -34,9 +49,9 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     color: var(--color-neutral-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -294,6 +309,48 @@ input::placeholder {
     ---
     Website main logo
 */
+
+.c-app {
+    height: 100vh;
+    display: grid;
+    /* 1fr = 1 fractie => in dit geval alles opvullen */
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 260px 1fr;
+}
+
+.c-app__logo {
+    background-color: var(--color-neutral-xx-dark);
+    z-index: 2;
+    padding: 25px;
+    display: block;
+}
+ 
+.c-app__topbar {
+    background-color: var(--color-neutral-x-light);
+    /* box-shadow => http://css3generator.com/ */
+    -webkit-box-shadow: 0 6px 2px 1px #EDEDED;
+    box-shadow: 0 6px 5px 2px #EDEDED;
+    z-index: 1 ;
+}
+
+.c-app__sidebar {
+    background-color: var(--color-neutral-dark);
+    z-index: 1 ;
+}
+
+.c-app__main {
+    background-color: var(--color-neutral-light);
+    z-index: 0 ;
+}
+
+.c-logo{
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+
 
 /*------------------------------------*\
 #UTILITIES
